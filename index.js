@@ -62,7 +62,3 @@ while (true) {
 }
 
 console.log('Why we are stoped?!?');
-
-// function getAddress(node, network) {
-//     return bitcoin.payments.p2pkh({ pubkey: node.publicKey, network }).address;
-// }
