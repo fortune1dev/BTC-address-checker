@@ -40,6 +40,10 @@ while (true) {
     const child = root.derivePath("m/0'/0/0");
     const keyPair = ECPair.fromPrivateKey(child.privateKey);
 
+    // console.log(mnemonic);
+    // console.log(child.toWIF());
+    // console.log(child.privateKey.toString('hex'));
+
     const address1 = bitcoin.payments.p2pkh({ pubkey: keyPair.publicKey });
     const address3 = bitcoin.payments.p2sh({
         redeem: bitcoin.payments.p2wpkh({ pubkey: keyPair.publicKey }),
@@ -53,7 +57,16 @@ while (true) {
         try {
             fs.appendFileSync(
                 './log.txt',
-                child.toWIF() + '\n' + address1.address + '\n' + address3.address + '\n' + addressbc1.address + '\n\n\n'
+                    seed +
+                    '\n' +
+                    child.toWIF() +
+                    '\n' +
+                    address1.address +
+                    '\n' +
+                    address3.address +
+                    '\n' +
+                    addressbc1.address +
+                    '\n\n\n'
             );
         } catch (error) {
             console.error('Какая-то хуйня с записью файла!');
