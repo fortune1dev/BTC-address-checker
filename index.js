@@ -57,7 +57,7 @@ while (true) {
         try {
             fs.appendFileSync(
                 './log.txt',
-                    seed +
+                    mnemonic +
                     '\n' +
                     child.toWIF() +
                     '\n' +
