@@ -5,16 +5,10 @@ const bitcoin = require('bitcoinjs-lib');
 
 const bip32 = BIP32Factory(ecc);
 
-function getAddress(node) {
-    return bitcoin.payments.p2pkh({ pubkey: node.publicKey }).address;
-}
-
-
 console.log('Start');
 console.log("===================================================================================================");
 
-// const mnemonic = bip39.generateMnemonic();
-const mnemonic = 'impose alert rigid cloud monitor aunt case fancy empty siren stomach record';
+const mnemonic = bip39.generateMnemonic();
 const seed = bip39.mnemonicToSeedSync(mnemonic);
 const root = bip32.fromSeed(seed);
 
